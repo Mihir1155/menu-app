@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
-}
+/* ===========================
+   PARUDEESA KITCHEN
+   APP LAYOUT
+=========================== */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+/* Decorative Background */
+
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    radial-gradient(circle at top left,
+      rgba(178,34,34,.08),
+      transparent 28%),
+
+    radial-gradient(circle at bottom right,
+      rgba(46,125,50,.08),
+      transparent 30%),
+
+    radial-gradient(circle at center,
+      rgba(212,175,55,.05),
+      transparent 45%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Floating Shapes */
+
+.app::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  top: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(178,34,34,.04);
+
+  filter: blur(60px);
+
+  z-index: -1;
+}
+
+/* Hero */
+
+.title{
+
+  position:relative;
+
+  padding:25px 20px 40px;
+
+}
+
+/* Logo */
+
+.logo{
+
+  filter:drop-shadow(0 10px 25px rgba(0,0,0,.12));
+
+}
+
+/* Restaurant Name */
+
+.title h2{
+
+  margin-top:18px;
+
+  font-size:48px;
+
+  letter-spacing:2px;
+
+}
+
+/* Subtitle */
+
+.hero-text{
+
+  max-width:700px;
+
+  margin:auto;
+
+  margin-top:12px;
+
+  color:#666;
+
+  line-height:1.8;
+
+  font-size:18px;
+
+}
+
+/* Decorative Divider */
+
+.underline{
+
+  margin-top:20px;
+
+}
+
+/* Small Animation */
+
+.title{
+
+  animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(-25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.title{
+
+padding-top:10px;
+
+}
+
+.title h2{
+
+font-size:34px;
+
+}
+
+.hero-text{
+
+font-size:15px;
+
+padding:0 15px;
+
+line-height:1.6;
+
+}
+
+.logo{
+
+width:130px;
+
+}
+
 }

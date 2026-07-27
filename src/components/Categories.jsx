@@ -1,26 +1,60 @@
-import React from 'react'
+import React from "react";
 
-const Categories = ({categories, filterItems, activeCategory}) => {
+const Categories = ({ categories, filterItems, activeCategory }) => {
+  const getIcon = (category) => {
+    switch (category.toLowerCase()) {
+      case "all":
+        return "🍽";
+
+      case "today's menu":
+        return "🔥";
+
+      case "biriyani":
+        return "🍛";
+
+      case "chinese":
+        return "🥢";
+
+      case "chicken":
+        return "🍗";
+
+      case "beef":
+        return "🥩";
+
+      case "breads":
+        return "🥖";
+
+      case "juices":
+        return "🥤";
+
+      case "eggs":
+        return "🥚";
+
+      default:
+        return "🍴";
+    }
+  };
+
   return (
-    <div className='btn-container'>
-      {categories.map((category, index) => {
-        return(
-          <button
-          type='button'
-          id='btn'
-          className={`${
-            activeCategory === category ? "filter-btn active" : "filter-btn"
+    <nav className="btn-container" aria-label="Menu Categories">
+      {categories.map((category) => (
+        <button
+          key={category}
+          type="button"
+          className={`filter-btn ${
+            activeCategory === category ? "active" : ""
           }`}
-          key={index}
           onClick={() => filterItems(category)}
-          >
-            {category}
-          </button>
-        )
-      }) }
+          aria-pressed={activeCategory === category}
+          title={category}
+        >
+          <span className="btn-icon">{getIcon(category)}</span>
 
-    </div>
-  )
-}
+          <span>{category}</span>
+        </button>
+      ))}
+    </nav>
+  );
+};
 
-export default Categories
+export default Categories;
